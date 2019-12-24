@@ -6,8 +6,8 @@
  */
 
 const local = {
-    apiUrl: 'http://localhost:3001/api/v1',
-    socketUrl: 'http://localhost:3001'
+    apiUrl: 'http://172.24.0.218:3000/api/v1',
+    socketUrl: 'http://172.24.0.218:3000'
 };
 const production = {
     apiUrl: 'https://ba49e75e.ngrok.io/api/v1',

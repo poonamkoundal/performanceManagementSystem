@@ -5,8 +5,6 @@
  */
 
 import React from 'react';
-import ReactStars from 'react-stars';
-import { getFile } from '../../../utilities/common';
 import { Link } from 'react-router-dom';
 
 /************ Customer column list **********/
@@ -32,11 +30,11 @@ export default [
     show: true,
     Cell: ({ original }) => (
       <Link className="text-black" to={`/customers/profile/${original._id}`}>
-      <img
+      {/* <img
           src={getFile(original.profileImage || '')}
           className="table-profile-img"
           alt="customer-image"
-        />
+        /> */}
         {original.uid}
       </Link>
     )
@@ -62,12 +60,7 @@ export default [
       </Link>
     )
   },
-  {
-    Header: 'Rating',
-    accessor: 'email',
-    show: true,
-    Cell: props => <ReactStars count={5} size={18} value={3.5} color2={'#D2F035'} />
-  },
+ 
   {
     Header: 'Company Name',
     accessor: 'businessName',

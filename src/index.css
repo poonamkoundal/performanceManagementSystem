@@ -130,3 +130,140 @@ body {
 .competition-table {
   margin-top: 2%;
 }
+
+.pagination-section {
+	margin-bottom: 20px;
+	.result-per-page {
+		margin-bottom: 10px;
+	}
+	.total-views {
+		select {
+			height: 30px;
+			margin: 0;
+			border: 0;
+			background: $dark-blue !important;
+			box-shadow: none !important;
+			color: $white;
+			padding: 5px 8px 6px 8px;
+			border-radius: 3px;
+			font-size: 13px;
+			font-weight: normal;
+			min-width: 120px;
+			option {
+				background: $white;
+				color: #000;
+			}
+		}
+	}
+}
+
+
+
+.pagination-section {
+	.pagination {
+		@media (max-width:767px) {
+			margin-top: 15px;
+		}
+	}
+}
+
+.errors {
+	font-size: 0.8rem;
+	color: #EE0000;
+	margin-top: 0.25rem;
+	animation: slide-down 0.3s backwards ease-in-out;
+	
+	@keyframes slide-down {
+	  from {
+		transform: translateY(-50%);
+		opacity: 0;
+	  }
+	}
+  }
+
+.pagination {
+	li {
+		display: inline-block;
+		width: 32px;
+		height: 32px;
+		text-align: center;
+		line-height: 32px;
+		&:not(:last-child) {
+			border-right: 1px solid #ddd;
+		}
+		a {
+			color: $dark-blue;
+			text-decoration: none;
+			display: block;
+			font-size: 13px;
+		}
+	}
+	border: 1px solid #ddd;
+	display: inline-block;
+	li.active {
+		background-color: $dark-blue;
+		a {
+			color: $white;
+		}
+	}
+}
+
+
+.Sorting_table {
+	.table {
+		border: 1px solid #ddd;
+		margin-bottom: 23px;
+		background-color: #fff;
+		thead {
+			th {
+				border-top: 0;
+				padding: 0;
+				vertical-align: middle;
+				text-align: center;
+				.sorting {
+					padding: 15px 10px;
+					display: flex;
+					justify-content: space-between;
+					font-size: 15px;
+					cursor: pointer;
+					min-width: 150px;
+				}
+				&:not(:last-child) {
+					border-right: 1px solid #ddd;
+				}
+			}
+		}
+		tbody {
+			td {
+				vertical-align: middle;
+				font-size: 15px;
+				img {
+					display: flex;
+					max-width: 70px;
+					margin: 0 auto;
+				}
+				&:first-child {
+					text-align: center;
+				}
+			}
+		}
+		input[type="checkbox"] {
+			width: 15px;
+			height: 15px;
+			display: inline-block;
+		}
+		.has-icon {
+			padding: 15px 10px;
+			display: flex;
+			justify-content: center;
+			font-size: 15px;
+			cursor: pointer;
+			min-width: 50px;
+		}
+	}
+}
+
+
+.Bottom-Pagination {
+    margin-bottom: 20px;
+}

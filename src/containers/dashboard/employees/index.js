@@ -1,57 +1,150 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { Container, Row, Col, Button, Table } from 'reactstrap';
-import { get } from '../../../actions/competition';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import GenricTable from '../../../components/common/genric-table';
+import Pagination from '../../../components/common/pagination';
+import Columns from '../../../components/common/table-columns/employee';
+import { confirmAlert } from 'react-confirm-alert';
+// import {
+//   getCustomer,
+//   getCreditApplicationCustomers,
+//   updateCustomerStatus,
+//   filterCustomer,
+//   getCustomerDetail
+// } from '../../../actions/customer';
 
-export default () => {
-    const { competition } = useSelector(state => state);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(get());
-    }, []);
+
+class EmployeesList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      popup: false,
+      selectedCustomer: {},
+      activePage: 1
+    };
+    this.approveCustomer = this.approveCustomer.bind(this);
+    this.declineCustomer = this.declineCustomer.bind(this);
+    this.showCustomerDetails = this.showCustomerDetails.bind(this);
+    this.handlePageChange = this.handlePageChange.bind(this);
+  }
+
+  componentDidMount() {
+    // this.props.getCustomer({});
+    // this.props.getCreditApplicationCustomers({ isApproved: 0 });
+  }
+
+  handlePageChange(){
+      
+  }
+  static getDerivedStateFromProps(props, state) {
+    // if (props.customer.isSearch) {
+    //   props.getCustomer(props.customer.value);
+    // }
+    return state;
+  }
+
+  /********** Search *********/
+  search = params => {
+    if (params.trim().length > 1) {
+      this.props.filterCustomer({ search: params });
+    } else if (params.trim().length === 0) {
+      this.props.filterCustomer({});
+    }
+  };
+
+  declineCustomer = id => {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className="custom-ui">
+            <h1>Are you sure?</h1>
+            <p>You want to delete this ?</p>
+            <button onClick={onClose}>No</button>
+            <button
+              onClick={() => {
+                this.props.updateCustomerStatus({ userId: id, status: 2 });
+                onClose();
+              }}
+            >
+              Yes, Delete it!
+            </button>
+          </div>
+        );
+      }
+    });
+  };
+
+  approveCustomer = value => {
+    this.props.updateCustomerStatus({ userId: value, status: 1 });
+  };
+
+  showCustomerDetails = id => {
+    this.props.getCustomerDetail(id, res => {
+      if (res && res.status) {
+        this.setState({ popup: !this.state.popup, selectedCustomer: res.data });
+      }
+    });
+  };
+
+  render() {
+    const { history, customer } = this.props;
+
     return (
-        <Container>
-            <Row>
-                <Col sm="12" md={{ size: 2, offset: 10 }}>
-                    <Link to="competitions/add">
-                        <Button color="info">Add Competition</Button>
-                    </Link>
-                </Col>
-            </Row>
-            <Row>
-                <Col sm="12" className="competition-table">
-                    <Table>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Competition Name</th>
-                                <th>Description</th>
-                                <th>Users</th>
-                                <th>Price</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                competition.map((row, index) =>
-                                    <tr key={index}>
-                                        <th scope="row">{index + 1}</th>
-                                        <td>{row.name}</td>
-                                        <td>{row.description}</td>
-                                        <td>{row.users}</td>
-                                        <td>{row.price}</td>
-                                        <td>{row.startDate}</td>
-                                        <td>{row.endDate}</td>
-                                    </tr>
-                                )
-                            }
-
-                        </tbody>
-                    </Table>
-                </Col>
-            </Row>
-        </Container>
+      <div className="content">
+        
+        {/* uncomment commented section when filter is engaged */}
+        {/* <div className="sidebar-wrap" > */}
+        {/* <Sidebar {...this.props} /> */}
+        {/* <div className="content-wrapper">     */}
+        {/* ************************************************************** */}
+        {/* remove below div when filter is engaged */}
+        <div>
+          <h3 className="main-heading">New Customers - credit application</h3>
+          <h3 className="main-heading">Existing Customers</h3>
+          <div className="table-responsive customer-listing-table">
+            <GenricTable
+              records={[]}
+              columns={Columns}
+              pageSize={100}
+              loading={false}
+              _getTdProps={(state, rowInfo, column, instance) => {
+                return {
+                  state,
+                  onClick: () => {
+                    // this.props.checked({ id: rowInfo.original.id });
+                    // this.setState({ _id: rowInfo.original.id });
+                  },
+                  column,
+                  instance
+                };
+              }}
+            />
+          </div>
+          <Pagination
+                      activePage={this.state.activePage}
+                      ItemPerPage={10}
+                      length={10}
+                      _handlePageChange={this.handlePageChange.bind(this)}
+                    />
+        </div>
+      </div>
     );
-};
+  }
+}
+
+const mapStateToProps = state => ({
+  customer: state.customer
+});
+
+const mapDispatchToProps = dispatch => ({
+//   getCustomer: bindActionCreators(getCustomer, dispatch),
+//   getCreditApplicationCustomers: bindActionCreators(getCreditApplicationCustomers, dispatch),
+//   filterCustomer: bindActionCreators(filterCustomer, dispatch),
+//   updateCustomerStatus: bindActionCreators(updateCustomerStatus, dispatch),
+//   getCustomerDetail: bindActionCreators(getCustomerDetail, dispatch)
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EmployeesList);
