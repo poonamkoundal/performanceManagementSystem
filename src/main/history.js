@@ -2,7 +2,7 @@
  * @file: history.js
  * @description: History Configration
  * @date: 28.11.2019
- * @author: Jasdeep Singh
+ * @author: 
  * */
 
 import { createBrowserHistory } from 'history';

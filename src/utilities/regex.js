@@ -2,7 +2,7 @@
  * @file: Regex.js
  * @description: Regex used for validation in application.
  * @date: 28.11.2019
- * @author: Jasdeep Singh
+ * @author: 
  * */
 
 const Regex = {

@@ -1,7 +1,7 @@
 /*
  * @file: configureStore.prod.js
  * @description: Configure/creating redux store with thunk,reducer etc
- * @author: Jasdeep Singh
+ * @author: 
  * */
 
 import { applyMiddleware, createStore, compose } from 'redux';

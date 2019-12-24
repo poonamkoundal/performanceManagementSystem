@@ -2,7 +2,7 @@
  * @file: AppRoute.js
  * @description: Defined routers layouts
  * @date: 28.11.2019
- * @author: Jasdeep Singh
+ * @author: 
 */
 
 /************ React Pages according to layouts  *****************/

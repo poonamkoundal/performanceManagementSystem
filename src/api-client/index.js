@@ -1,7 +1,7 @@
 /*
  * @file: index.js
  * @description: It Contain rest functions for api call .
- * @author: Jasdeep Singh
+ * @author: 
  */
 import axios from 'axios';
 import querystring from 'querystring';

@@ -1,7 +1,7 @@
 /*
  * @file: index.js
  * @description: It is main app file .
- * @author: Jasdeep Singh
+ * @author: 
  */
 import React from 'react';
 import ReactDOM from 'react-dom';

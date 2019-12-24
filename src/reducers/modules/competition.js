@@ -2,7 +2,7 @@
  * @file: competition.js
  * @description: Reducers and actions for store/manipulate competition's  data
  * @date: 28.11.2019
- * @author: Jasdeep Singh
+ * @author: 
 */
 
 import * as TYPE from '../../actions/constants';

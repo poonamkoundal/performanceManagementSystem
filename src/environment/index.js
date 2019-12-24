@@ -2,7 +2,7 @@
  * @file: index.js
  * @description: It Contain environment variables.
  * @date: 04.07.2018
- * @author: Jasdeep Singh
+ * @author: 
  */
 
 const local = {

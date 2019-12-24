@@ -1,7 +1,7 @@
 /*
  * @file: index.js
  * @description: It Contain user Related Action Creators.
- * @author: Jasdeep Singh
+ * @author: 
  */
 import * as TYPE from '../constants';
 import ApiClient from '../../api-client';

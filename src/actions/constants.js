@@ -1,7 +1,7 @@
 /*
  * @file: constants.js
  * @description: It Contain action types Related Action.
- * @author: Jasdeep Singh
+ * @author: 
  */
 
 /*********** USER ***********/

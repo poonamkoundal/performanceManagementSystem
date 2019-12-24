@@ -13,7 +13,7 @@ export default () => {
             <Row>
                 <Col sm="12" md={{ size: 6, offset: 3 }}>
                     <Card body outline color="secondary">
-                        <h1 className="badge-center" ><Badge color="secondary">Admin Login</Badge></h1>
+                        <h1 className="badge-center" ><Badge color="secondary">Welcome!</Badge></h1>
                         <LocalForm
                             onSubmit={(values) => dispatch(login(values))}
                             model="user"

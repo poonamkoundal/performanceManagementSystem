@@ -2,7 +2,7 @@
  * @file: index.js
  * @description: Auth functions here
  * @date: 28.11.2019
- * @author: Jasdeep Singh
+ * @author: 
  * */
 
 /******** Get User from store  ***********/

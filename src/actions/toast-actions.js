@@ -1,7 +1,7 @@
 /*
  * @file: toast-actions.js
  * @description: It Contain toasts Action function.
- * @author: Jasdeep Singh
+ * @author: 
  */
 
 import { push } from 'react-router-redux';

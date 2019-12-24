@@ -2,7 +2,7 @@
  * @file: Layouts.js
  * @description: Defined all Layouts for application
  * @date: 28.11.2019
- * @author: Jasdeep Singh
+ * @author: 
 */
 
 import React from 'react';

@@ -2,7 +2,7 @@
  * @file: index.js
  * @description: App Configration
  * @date: 28.11.2019
- * @author: Jasdeep Singh
+ * @author: 
  * */
 
 import React from 'react';

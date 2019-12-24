@@ -1,7 +1,7 @@
 /*
  * @file: messages.js
  * @description: Handle staic messages for the application
- * @author: Jasdeep Singh
+ * @author: 
  */
 
 const Message = {
