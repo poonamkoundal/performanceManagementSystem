@@ -27,11 +27,9 @@ export const privateLayout = props => {
             {/* <Header /> */}
             <div className="appContent">
                 <div className="main-container collapse-sidebar">
-                    <div className="container-fluid">
+                    <div className="container">
+                    <Sidebar history = {props.children.props.history} location = {props.children.props.location}/>
                         <div className="row">
-                            <div className="col-2">
-                                <Sidebar />
-                            </div>
                             <div className="col-10 admin">
                                 {props.children}
                             </div>

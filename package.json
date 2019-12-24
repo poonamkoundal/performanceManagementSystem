@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@trendmicro/react-sidenav": "^0.4.5",
     "autoprefixer": "7.1.6",
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
@@ -50,6 +51,7 @@
     "react-datetime-picker": "^2.8.0",
     "react-dev-utils": "^4.2.0",
     "react-dom": "^16.0.0",
+    "react-fontawesome": "^1.7.1",
     "react-loaders": "^3.0.1",
     "react-redux": "^7.0.3",
     "react-redux-form": "^1.16.14",

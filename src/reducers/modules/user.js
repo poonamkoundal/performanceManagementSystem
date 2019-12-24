@@ -10,7 +10,7 @@ import * as TYPE from '../../actions/constants';
 /******** Reducers ********/
 
 const initialState = {
-    loggedIn: false
+    loggedIn: true
 };
 
 export default function reducer(state = initialState, action) {

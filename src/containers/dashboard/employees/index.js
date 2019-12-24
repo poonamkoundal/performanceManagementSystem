@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col, Button, Table } from 'reactstrap';
-import { get } from '../../actions/competition';
+import { get } from '../../../actions/competition';
 
 export default () => {
     const { competition } = useSelector(state => state);

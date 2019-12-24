@@ -7,7 +7,7 @@ import { publicLayout, privateLayout } from '../components/Layouts';
 import NotFound from '../components/NoFound';
 import Login from '../containers/login';
 import Dashboard from '../containers/dashboard';
-import Competitions from '../containers/competitions';
+import Employees from '../containers/dashboard/employees';
 import CompetitionsAdd from '../containers/competitions/add';
 
 const Routers = store => {
@@ -32,8 +32,8 @@ const Routers = store => {
             />
             <AppRoute
                 exact={true}
-                path="/competitions"
-                component={Competitions}
+                path="/employees"
+                component={Employees}
                 requireAuth={Auth}
                 layout={privateLayout}
                 store={store}
