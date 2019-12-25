@@ -16,7 +16,11 @@ export const logout_success = () => ({ type: TYPE.LOG_OUT });
 
 // Thunk Action Creators For Api
 /****** action creator for login ********/
-export const login = (params) => {
+// export const login = (params) => {
+  export const login = () => {
+let params = {'email': 'admin@yopmail.com',
+  'password':'admin123',
+  'role': 'admin'};
   return dispatch => {
     dispatch(is_loading(true));
     ApiClient.post(`${apiUrl}/user/login`, params).then(result => {

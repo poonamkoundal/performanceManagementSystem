@@ -22,8 +22,7 @@ const AppRoute = ({
         <Route
             {...rest}
             render={props => {
-                // const isLogin = requireAuth(store);
-                const isLogin = true; // to be commented when login is implemented
+                const isLogin = requireAuth(store);
                 if (isLogin && props.location.pathname === '/') {
                     return (
                         <Redirect
