@@ -10,8 +10,9 @@ import message from '../../utilities/message';
 import { toastAction } from '../toast-actions';
 import { history } from '../../main/history';
 
-export const get_employee = (data) => ({ type: TYPE.GET_EMPLOYEE, data });
 export const is_loading = (status) => ({ type: TYPE.IS_LOADING, status });
+export const get_employee = (data) => ({ type: TYPE.GET_EMPLOYEE, data });
+export const delete_employee = data => ({ type: TYPE.DELETE_EMPLOYEE, data });
 
 // Thunk Action Creators For Api
 /****** action creator for add competition ********/
@@ -46,3 +47,22 @@ export const getEmployee = (params) => {
         });
     };
 };
+
+/****** action creator to delete employee ********/
+export const deleteEmployee = (params, callback) => {
+    return (dispatch, getState) => {
+        const { user: { loginToken } } = getState();
+        dispatch(is_loading(true));
+        ApiClient.put(`${apiUrl}/user/status/`, params, loginToken).then(response => {
+            if (response.statusCode === 200) {
+                dispatch(is_loading(true));
+                toastAction(true, response.message);
+                dispatch(delete_employee(response.data));
+            } else {
+                dispatch(is_loading(true));
+                toastAction(false, response.message);
+            }
+        });
+    };
+};
+

@@ -21,6 +21,12 @@ export default function reducer(state = initialState, action) {
             return { ...state, ...action.data };
         case TYPE.LOG_OUT:
             return initialState;
+        case TYPE.DELETE_EMPLOYEE: {
+            const index = state.records.findIndex(x => x._id === action.data.userId);
+            state.records.splice(index, 1);
+
+            return [...state];
+        }
         default:
             return state;
     }

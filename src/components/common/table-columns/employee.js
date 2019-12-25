@@ -8,7 +8,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Role } from '../../../utilities/constants';
 import moment from 'moment';
+import DeleteRecords from '../delete-records';
 
+//function to get the role name
 const getKey = (val) => {
   return Object.keys(Role).find(key => Role[key] === val);
 };
@@ -77,12 +79,7 @@ export default [
     show: true,
     Cell: ({ original }) => (
       <React.Fragment>
-        <Link to={`/jobs/add-job/${original._id}`}>
-          {/* <button className="btn customer-book-btn" type="button">
-            Book Job
-            <i className="fas fa-plus pl-3"></i>
-          </button> */}
-        </Link>
+        <DeleteRecords title="employee" deleteId={original._id} />
       </React.Fragment>
     )
   }
