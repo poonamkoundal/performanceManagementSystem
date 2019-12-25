@@ -7,7 +7,7 @@
 /************ User roles in the system *************/
 export const Role = {
   VP: 1,
-  ADMIN: 2,
+  // ADMIN: 2,
   MANAGER: 3,
   ASSOCIATE: 4,
   HR: 5

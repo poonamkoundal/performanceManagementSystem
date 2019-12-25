@@ -6,13 +6,7 @@ import Pagination from '../../../components/common/pagination';
 import Columns from '../../../components/common/table-columns/employee';
 import SearchBar from '../../../components/common/search-add-header';
 import { confirmAlert } from 'react-confirm-alert';
-// import {
-//   getCustomer,
-//   getCreditApplicationCustomers,
-//   updateCustomerStatus,
-//   filterCustomer,
-//   getCustomerDetail
-// } from '../../../actions/customer';
+import { getEmployee } from '../../../actions/employee';
 
 
 class EmployeesList extends Component {
@@ -30,13 +24,16 @@ class EmployeesList extends Component {
   }
 
   componentDidMount() {
-    // this.props.getCustomer({});
+    this.props.getEmployee({ pageNumber: this.state.activePage });
     // this.props.getCreditApplicationCustomers({ isApproved: 0 });
   }
 
-  handlePageChange(){
-      
+  handlePageChange(activePage) {
+    this.setState({ activePage }, () => {
+      this.props.getEmployee({ pageNumber: activePage });
+    });
   }
+
   static getDerivedStateFromProps(props, state) {
     // if (props.customer.isSearch) {
     //   props.getCustomer(props.customer.value);
@@ -88,19 +85,19 @@ class EmployeesList extends Component {
   };
 
   render() {
-    const { history, customer } = this.props;
+    const { history, employee } = this.props;
 
     return (
       <div className="content">
         <div>
           <h3 className="main-heading">Employees</h3>
-          
-          <SearchBar buttonTitle = 'Add Employee' redirectTo='/employees/add' history= {history}/>
+
+          <SearchBar buttonTitle='Add Employee' redirectTo='/employees/add' history={history} />
           <div className="table-responsive customer-listing-table">
             <GenricTable
-              records={[]}
+              records={employee.records}
               columns={Columns}
-              pageSize={100}
+              pageSize={10}
               loading={false}
               _getTdProps={(state, rowInfo, column, instance) => {
                 return {
@@ -116,11 +113,11 @@ class EmployeesList extends Component {
             />
           </div>
           <Pagination
-                      activePage={this.state.activePage}
-                      ItemPerPage={10}
-                      length={10}
-                      _handlePageChange={this.handlePageChange.bind(this)}
-                    />
+            activePage={this.state.activePage}
+            ItemPerPage={employee.limit}
+            length={employee.total}
+            _handlePageChange={this.handlePageChange.bind(this)}
+          />
         </div>
       </div>
     );
@@ -128,15 +125,11 @@ class EmployeesList extends Component {
 }
 
 const mapStateToProps = state => ({
-  customer: state.customer
+  employee: state.employee
 });
 
 const mapDispatchToProps = dispatch => ({
-//   getCustomer: bindActionCreators(getCustomer, dispatch),
-//   getCreditApplicationCustomers: bindActionCreators(getCreditApplicationCustomers, dispatch),
-//   filterCustomer: bindActionCreators(filterCustomer, dispatch),
-//   updateCustomerStatus: bindActionCreators(updateCustomerStatus, dispatch),
-//   getCustomerDetail: bindActionCreators(getCustomerDetail, dispatch)
+  getEmployee: bindActionCreators(getEmployee, dispatch),
 });
 
 export default connect(

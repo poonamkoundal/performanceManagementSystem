@@ -10,7 +10,6 @@ import message from '../../utilities/message';
 import { toastAction } from '../toast-actions';
 import { history } from '../../main/history';
 
-export const add_employee = (data) => ({ type: TYPE.ADD_EMPLOYEE, data });
 export const get_employee = (data) => ({ type: TYPE.GET_EMPLOYEE, data });
 export const is_loading = (status) => ({ type: TYPE.IS_LOADING, status });
 
@@ -22,7 +21,6 @@ export const addEmployee = (params) => {
         dispatch(is_loading(true));
         ApiClient.post(`${apiUrl}/user`, params, loginToken).then(result => {
             if (result && result.statusCode === 200) {
-                dispatch(add_employee(result.data));
                 toastAction(true, result.message);
                 history.push('/employees');
             } else {
@@ -34,7 +32,7 @@ export const addEmployee = (params) => {
 };
 
 /****** action creator for get competition ********/
-export const get = (params) => {
+export const getEmployee = (params) => {
     return (dispatch, getState) => {
         const { user: { loginToken } } = getState();
         dispatch(is_loading(true));
