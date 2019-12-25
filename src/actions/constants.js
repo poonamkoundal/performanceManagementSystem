@@ -29,5 +29,9 @@ export const DELETE_PROJECT = 'DELETE_PROJECT';
 
 /*********** GOAL ***********/
 export const GET_GOAL = 'GET_GOAL';
-// export const UPDATE_PROJECT = 'UPDATE_PROJECT';
-// export const DELETE_PROJECT = 'DELETE_PROJECT';
+
+/*********** ASSESMENT ***********/
+export const GET_ASSESMENT = 'GET_ASSESMENT';
+export const ADD_ASSESMENT = 'ADD_ASSESMENT';
+
+

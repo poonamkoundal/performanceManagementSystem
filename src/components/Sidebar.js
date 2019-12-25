@@ -64,6 +64,15 @@ export default (history) => {
                             </NavText>
                         </NavItem>
                     }
+                    {[3, 4, 5].includes(user.role) && user.assesmentUser &&
+                        <NavItem eventKey="assesment">
+                            <NavIcon>
+                                <i className="fas fa-hand-holding-usd" style={{ fontSize: '1.75em' }} />
+                            </NavIcon>
+                            <NavText>
+                                Appraisal
+                        </NavText>
+                        </NavItem>}
                     {[2, 3, 4].includes(user.role) &&
                         <NavItem eventKey="projects">
                             <NavIcon>

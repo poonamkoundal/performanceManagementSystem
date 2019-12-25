@@ -12,6 +12,7 @@ import Employees from '../containers/dashboard/employees';
 import EmployeesAdd from '../containers/dashboard/employees/add';
 import Projects from '../containers/dashboard/project';
 import ProjectAdd from '../containers/dashboard/project/add';
+import Assesment from '../containers/dashboard/assesment';
 // remove the below route
 import CompetitionsAdd from '../containers/competitions/add';
 
@@ -82,6 +83,15 @@ const Routers = store => {
                 layout={adminLayout}
                 store={store}
                 role={[2]}
+            />
+            <AppRoute
+                exact={true}
+                path="/assesment"
+                component={Assesment}
+                requireAuth={Auth}
+                layout={adminLayout}
+                store={store}
+                role={[3, 4]}
             />
             <AppRoute
                 exact={true}

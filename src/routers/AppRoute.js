@@ -28,7 +28,7 @@ const AppRoute = ({
                     return (
                         <Redirect
                             to={{
-                                pathname: role === 2 ? '/home' : '/dashboard',
+                                pathname: user.role === 2 ? '/home' : '/dashboard',
                                 state: { from: props.location }
                             }}
                         />
