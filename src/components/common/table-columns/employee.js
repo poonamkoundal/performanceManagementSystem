@@ -18,31 +18,16 @@ export default [
     Header: 'ID',
     accessor: 'uid',
     show: true,
-    Cell: ({ original }) => (
-      <Link className="text-black" to={`/customers/profile/${original._id}`}>
-        {original.uid}
-      </Link>
-    )
   },
   {
     Header: 'First Name',
     accessor: 'firstName',
     show: true,
-    Cell: ({ original }) => (
-      <Link className="text-black" to={`/customers/profile/${original._id}`}>
-        {original.firstName}
-      </Link>
-    )
   },
   {
     Header: 'Last Name',
     accessor: 'lastName',
     show: true,
-    Cell: ({ original }) => (
-      <Link className="text-black" to={`/customers/profile/${original._id}`}>
-        {original.lastName}
-      </Link>
-    )
   },
   {
     Header: 'Email',
