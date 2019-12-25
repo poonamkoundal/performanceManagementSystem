@@ -30,7 +30,7 @@ export const privateLayout = props => {
                     <div className="container">
                     <Sidebar history = {props.children.props.history} location = {props.children.props.location}/>
                         <div className="row">
-                            <div className="col-10 admin">
+                            <div className="col-md-12 admin">
                                 {props.children}
                             </div>
                         </div>

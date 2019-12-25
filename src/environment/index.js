@@ -1,12 +1,11 @@
 /*
  * @file: index.js
  * @description: It Contain environment variables.
- * @date: 04.07.2018
+ * @date: 25.12.2018
  * @author: 
  */
-
 const local = {
-    apiUrl: 'http://3.18.168.191:3000/api/v1',
+    apiUrl: 'http://172.24.0.218:3000/api/v1',
     socketUrl: 'http://172.24.0.218:3000'
 };
 const production = {

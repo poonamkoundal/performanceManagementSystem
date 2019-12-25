@@ -1,11 +1,20 @@
 import React from 'react';
-import Pagination from 'react-js-pagination';
+import Pagination from "react-js-pagination";
 import PropTypes from 'prop-types';
+// require("bootstrap/less/bootstrap.less");
 const PAGE_RANGE_SHOW = 10;
 
 const pagination = ({ activePage, ItemPerPage, length, _handlePageChange }) => {
   return (
-    <Pagination
+    <div className = 'row'>
+       <Pagination
+        activePage={activePage}
+        itemsCountPerPage={ItemPerPage}
+        totalItemsCount={length}
+        ageRangeDisplayed={PAGE_RANGE_SHOW}
+        onChange={_handlePageChange}
+        />
+    {/* <Pagination
       innerClass="pagination"
       activePage={activePage}
       itemsCountPerPage={ItemPerPage}
@@ -14,7 +23,8 @@ const pagination = ({ activePage, ItemPerPage, length, _handlePageChange }) => {
       totalItemsCount={length}
       pageRangeDisplayed={PAGE_RANGE_SHOW}
       onChange={_handlePageChange}
-    />
+    /> */}
+    </div>
   );
 };
 

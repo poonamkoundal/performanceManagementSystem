@@ -27,9 +27,10 @@ export default (history) => {
                         setMenu(expanded);
                     }}
                     onSelect={(selected) => {
-                        console.log('selected', history);
                         const to = '/' + selected;
-                        if (history.location.pathname !== to) {
+                        if(selected === 'logout'){
+                            dispatch(logout());
+                        } else if (history.location.pathname !== to) {
                             history.history.push(to);
                         }
                     }}
@@ -50,6 +51,14 @@ export default (history) => {
                             </NavIcon>
                             <NavText>
                                 Employees
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="logout">
+                            <NavIcon>
+                                <i className="fa fa-fw fa-sign-out-alt" style={{ fontSize: '1.75em' }} />
+                            </NavIcon>
+                            <NavText>
+                                Logout
                             </NavText>
                         </NavItem>
                     </SideNav.Nav>

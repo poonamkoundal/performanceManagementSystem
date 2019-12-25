@@ -8,6 +8,8 @@ import NotFound from '../components/NoFound';
 import Login from '../containers/login';
 import Dashboard from '../containers/dashboard';
 import Employees from '../containers/dashboard/employees';
+import EmployeesAdd from '../containers/dashboard/employees/add';
+// remove the below route
 import CompetitionsAdd from '../containers/competitions/add';
 
 const Routers = store => {
@@ -34,6 +36,14 @@ const Routers = store => {
                 exact={true}
                 path="/employees"
                 component={Employees}
+                requireAuth={Auth}
+                layout={privateLayout}
+                store={store}
+            />
+             <AppRoute
+                exact={true}
+                path="/employees/add"
+                component={EmployeesAdd}
                 requireAuth={Auth}
                 layout={privateLayout}
                 store={store}

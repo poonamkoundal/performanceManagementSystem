@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import GenricTable from '../../../components/common/genric-table';
 import Pagination from '../../../components/common/pagination';
 import Columns from '../../../components/common/table-columns/employee';
+import SearchBar from '../../../components/common/search-add-header';
 import { confirmAlert } from 'react-confirm-alert';
 // import {
 //   getCustomer,
@@ -91,16 +92,10 @@ class EmployeesList extends Component {
 
     return (
       <div className="content">
-        
-        {/* uncomment commented section when filter is engaged */}
-        {/* <div className="sidebar-wrap" > */}
-        {/* <Sidebar {...this.props} /> */}
-        {/* <div className="content-wrapper">     */}
-        {/* ************************************************************** */}
-        {/* remove below div when filter is engaged */}
         <div>
-          <h3 className="main-heading">New Customers - credit application</h3>
-          <h3 className="main-heading">Existing Customers</h3>
+          <h3 className="main-heading">Employees</h3>
+          
+          <SearchBar buttonTitle = 'Add Employee' redirectTo='/employees/add' history= {history}/>
           <div className="table-responsive customer-listing-table">
             <GenricTable
               records={[]}

@@ -111,7 +111,7 @@ body {
   margin-top: 10%
 }
 .admin {
-  padding: 5% 0
+  padding: 2% 0
 }
 .badge-center {
   text-align: center;
@@ -131,7 +131,7 @@ body {
   margin-top: 2%;
 }
 
-.pagination-section {
+/* .pagination-section {
 	margin-bottom: 20px;
 	.result-per-page {
 		margin-bottom: 10px;
@@ -155,17 +155,17 @@ body {
 			}
 		}
 	}
-}
+} */
 
 
 
-.pagination-section {
+/* .pagination-section {
 	.pagination {
 		@media (max-width:767px) {
 			margin-top: 15px;
 		}
 	}
-}
+} */
 
 .errors {
 	font-size: 0.8rem;
@@ -181,7 +181,7 @@ body {
 	}
   }
 
-.pagination {
+/* .pagination {
 	li {
 		display: inline-block;
 		width: 32px;
@@ -206,10 +206,10 @@ body {
 			color: $white;
 		}
 	}
-}
+} */
 
 
-.Sorting_table {
+/* .Sorting_table {
 	.table {
 		border: 1px solid #ddd;
 		margin-bottom: 23px;
@@ -266,4 +266,31 @@ body {
 
 .Bottom-Pagination {
     margin-bottom: 20px;
+} */
+.pagination{
+	width: 100%;
 }
+
+/* pagination css */
+.pagination li{
+	width: 4%;
+	/* height: 25px; */
+	border: 1px solid #cfcfcf;
+	padding: 1px;
+	text-align: center;
+	
+}
+.pagination li a{
+	color: grey;
+	font-size: 15px;
+}
+
+.operator-btn {
+	width: 200px;
+	height: 50px;
+	border: 2px solid #1c2025;
+	border-radius: 20px;
+	background-color: transparent;
+	/* font-weight: bold; */
+	color: #1c2025;
+  }

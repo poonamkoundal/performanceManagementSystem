@@ -17,10 +17,7 @@ export const logout_success = () => ({ type: TYPE.LOG_OUT });
 // Thunk Action Creators For Api
 /****** action creator for login ********/
 // export const login = (params) => {
-  export const login = () => {
-let params = {'email': 'admin@yopmail.com',
-  'password':'admin123',
-  'role': 'admin'};
+  export const login = (params) => {
   return dispatch => {
     dispatch(is_loading(true));
     ApiClient.post(`${apiUrl}/user/login`, params).then(result => {
@@ -38,16 +35,17 @@ let params = {'email': 'admin@yopmail.com',
 
 /****** action creator for login ********/
 export const logout = () => {
-  return dispatch => {
-    // ApiClient.post(`${apiUrl}/user/logout`, params).then(result => {
-    //   if (result && result.statusCode === 200) {
-    //     dispatch(logout_success(result.data));
-    //     history.push('/');
-    //   } else {
-    //     toastAction(false, result.message);
-    //   }
-    // });
-    dispatch(logout_success());
-    history.push('/');
+  return (dispatch, getState) => {
+    const { user: { loginToken } } = getState();
+    dispatch(is_loading(true));
+    ApiClient.delete(`${apiUrl}/user/logout`, loginToken).then(result => {
+      if (result && result.statusCode === 200) {
+        dispatch(logout_success(result.data));
+        history.push('/');
+      } else {
+        toastAction(false, result.message);
+      }
+      dispatch(is_loading(false));
+    });
   };
 };

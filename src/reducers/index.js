@@ -9,7 +9,7 @@ import encryptor from './encryptor';
 import user from './modules/user';
 import competition from './modules/competition';
 import loader from './modules/loader';
-
+import employee from './modules/employee';
 const userPersistConfig = {
   key: 'admin-app',
   storage: storage,
@@ -19,7 +19,8 @@ const userPersistConfig = {
 
 export default persistCombineReducers(userPersistConfig, {
   user,
-  competition,
+  competition, //remove this at end
+  employee,
   router: connectRouter(history),
   loader
 });
