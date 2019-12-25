@@ -13,7 +13,7 @@ const initialState = [];
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case TYPE.GET_GOALS:
+        case TYPE.GET_GOAL:
             return [...action.data];
         case TYPE.LOG_OUT:
             return initialState;

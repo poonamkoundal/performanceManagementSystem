@@ -82,14 +82,14 @@ class EmployeesList extends Component {
     };
 
     render() {
-        const { history, project } = this.props;
+        const { history, project, user } = this.props;
 
         return (
             <div className="content">
                 <div>
                     <h3 className="main-heading">Projects</h3>
 
-                    <SearchBar buttonTitle='Add Project' redirectTo='/projects/add' history={history} />
+                    {user.role === 2 && <SearchBar buttonTitle='Add Project' redirectTo='/projects/add' history={history} />}
                     <div className="table-responsive customer-listing-table">
                         <GenricTable
                             records={project.records}
@@ -122,7 +122,8 @@ class EmployeesList extends Component {
 }
 
 const mapStateToProps = state => ({
-    project: state.project
+    project: state.project,
+    user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({

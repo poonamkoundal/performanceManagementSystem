@@ -47,15 +47,14 @@ export default () => {
                                         model=".password"
                                         className="form-control"
                                         placeholder="Password"
-                                        validators={{ required, validatePassword }}
+                                        validators={{ required }}
                                     />
                                     <Errors
                                         model="user.password"
                                         show={(field) => field.touched && !field.focus}
                                         className="error"
                                         messages={{
-                                            required: 'Please provide a password.',
-                                            validatePassword: 'Password should be between 6 to 12 charactor.',
+                                            required: 'Please provide a password.'
                                         }}
                                     />
                                 </Col>

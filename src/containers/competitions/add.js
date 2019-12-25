@@ -6,7 +6,7 @@ import DateTimePicker from 'react-datetime-picker';
 import { add } from '../../actions/competition';
 import Loader from '../../components/ProcessingLoader';
 import { required, requiredDate } from '../../utilities/regex';
-//https://www.npmjs.com/package/react-datetime-picker
+
 export default ({ history }) => {
     const { loader } = useSelector(state => state);
     const dispatch = useDispatch();

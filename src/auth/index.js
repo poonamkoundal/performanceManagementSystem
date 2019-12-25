@@ -12,7 +12,7 @@ export const User = store => {
 
 /******** Routing authentication middleware ***********/
 export const Auth = store => {
-    return User(store).loggedIn;
+    return User(store);
 };
 /******** Set Authorization token in header ***********/
 export const setAuthorizationToken = (axios, token) => {

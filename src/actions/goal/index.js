@@ -19,10 +19,11 @@ export const addGoal = (params) => {
     return (dispatch, getState) => {
         const { user: { loginToken } } = getState();
         dispatch(is_loading(true));
-        ApiClient.post(`${apiUrl}/user`, params, loginToken).then(result => {
+        ApiClient.post(`${apiUrl}/goal`, params, loginToken).then(result => {
             if (result && result.statusCode === 200) {
                 toastAction(true, result.message);
-                history.push('/dashboard');
+                // history.push('/dashboard');
+                dispatch(get_goal(result.data));
             } else {
                 toastAction(false, result.message);
             }

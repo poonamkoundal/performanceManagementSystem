@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../actions/user';
 
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
@@ -8,6 +8,7 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 export default (history) => {
     const dispatch = useDispatch();
+    const { user } = useSelector(state => state);
     const [expanded, setMenu] = useState(false);
     return (
         <React.Fragment>
@@ -31,39 +32,56 @@ export default (history) => {
                 }}
             >
                 <SideNav.Toggle />
-                <SideNav.Nav defaultSelected="dashboard">
-                    <NavItem eventKey="dashboard">
-                        <NavIcon>
-                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
-                        </NavIcon>
-                        <NavText>
-                            Home
+                <SideNav.Nav defaultSelected="home">
+                    {[2].includes(user.role) &&
+                        <React.Fragment>
+                            <NavItem eventKey="home">
+                                <NavIcon>
+                                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                                </NavIcon>
+                                <NavText>
+                                    Home
                             </NavText>
-                    </NavItem>
-                    {/* <NavItem eventKey="employees">
-                        <NavIcon>
-                            <i className="fa fa-fw fa-users" style={{ fontSize: '1.75em' }} />
-                        </NavIcon>
-                        <NavText>
-                            Employees
+                            </NavItem>
+
+                            <NavItem eventKey="employees">
+                                <NavIcon>
+                                    <i className="fa fa-fw fa-users" style={{ fontSize: '1.75em' }} />
+                                </NavIcon>
+                                <NavText>
+                                    Employees
                             </NavText>
-                    </NavItem> */}
-                    {/* <NavItem eventKey="projects">
-                        <NavIcon>
-                            <i className="fas fa-folder-open" style={{ fontSize: '1.75em' }} />
-                        </NavIcon>
-                        <NavText>
-                            Projects
+                            </NavItem>
+                        </React.Fragment>
+                    }
+                    {[3, 4].includes(user.role) &&
+                        <NavItem eventKey="dashboard">
+                            <NavIcon>
+                                <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                            </NavIcon>
+                            <NavText>
+                                Dashboard
+                            </NavText>
+                        </NavItem>
+                    }
+                    {[2, 3, 4].includes(user.role) &&
+                        <NavItem eventKey="projects">
+                            <NavIcon>
+                                <i className="fas fa-folder-open" style={{ fontSize: '1.75em' }} />
+                            </NavIcon>
+                            <NavText>
+                                Projects
                         </NavText>
-                    </NavItem> */}
-                    {/* <NavItem eventKey="logout">
+                        </NavItem>
+                    }
+                    <NavItem eventKey="logout">
                         <NavIcon>
                             <i className="fa fa-fw fa-sign-out-alt" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
                         <NavText>
                             Logout
                             </NavText>
-                    </NavItem> */}
+                    </NavItem>
                 </SideNav.Nav>
             </SideNav>
             {/* </ClickOutside> */}

@@ -6,10 +6,7 @@
 */
 
 import React from 'react';
-// import Footer from './Footer';
-import AdminSidebar from './adminSidebar';
 import Sidebar from './sidebar';
-// import Header from './Header';
 /*************** Front Layout ***************/
 export const publicLayout = props => {
     window.scrollTo(0, 0);
@@ -29,7 +26,7 @@ export const adminLayout = props => {
             <div className="appContent">
                 <div className="main-container collapse-sidebar">
                     <div className="container">
-                        <AdminSidebar history={props.children.props.history} location={props.children.props.location} />
+                        <Sidebar history={props.children.props.history} location={props.children.props.location} />
                         <div className="row">
                             <div className="col-md-12 admin">
                                 {props.children}

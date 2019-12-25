@@ -35,6 +35,7 @@ const Routers = store => {
                 requireAuth={Auth}
                 layout={adminLayout}
                 store={store}
+                role={[2]}
             />
             {/* layout of other users */}
             <AppRoute
@@ -44,6 +45,7 @@ const Routers = store => {
                 requireAuth={Auth}
                 layout={privateLayout}
                 store={store}
+                role={[1, 3, 4, 5]}
             />
             <AppRoute
                 exact={true}
@@ -52,6 +54,7 @@ const Routers = store => {
                 requireAuth={Auth}
                 layout={adminLayout}
                 store={store}
+                role={[2]}
             />
             <AppRoute
                 exact={true}
@@ -60,6 +63,7 @@ const Routers = store => {
                 requireAuth={Auth}
                 layout={adminLayout}
                 store={store}
+                role={[2]}
             />
             <AppRoute
                 exact={true}
@@ -68,6 +72,7 @@ const Routers = store => {
                 requireAuth={Auth}
                 layout={adminLayout}
                 store={store}
+                role={[2, 3, 4]}
             />
             <AppRoute
                 exact={true}
@@ -76,6 +81,7 @@ const Routers = store => {
                 requireAuth={Auth}
                 layout={adminLayout}
                 store={store}
+                role={[2]}
             />
             <AppRoute
                 exact={true}
@@ -84,6 +90,7 @@ const Routers = store => {
                 requireAuth={Auth}
                 layout={adminLayout}
                 store={store}
+                role={[2]}
             />
             <AppRoute
                 exact

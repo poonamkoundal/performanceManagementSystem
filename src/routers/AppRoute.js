@@ -17,17 +17,18 @@ const AppRoute = ({
     to = '/',
     store,
     type = 'private',
+    role = [1, 2, 3, 4, 5],
     ...rest
 }) => (
         <Route
             {...rest}
             render={props => {
-                const isLogin = requireAuth(store);
-                if (isLogin && props.location.pathname === '/') {
+                const user = requireAuth(store);
+                if ((user.loggedIn && role.includes(user.role)) && props.location.pathname === '/') {
                     return (
                         <Redirect
                             to={{
-                                pathname: '/home',
+                                pathname: role === 2 ? '/home' : '/dashboard',
                                 state: { from: props.location }
                             }}
                         />
@@ -40,7 +41,7 @@ const AppRoute = ({
                         </Layout>
                     );
                 }
-                return isLogin || props.location.pathname === '/' ? (
+                return (user.loggedIn && role.includes(user.role)) || props.location.pathname === '/' ? (
                     <Layout>
                         <Component {...props} />
                     </Layout>
