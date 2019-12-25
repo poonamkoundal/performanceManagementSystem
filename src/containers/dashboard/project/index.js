@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import GenricTable from '../../../components/common/genric-table';
 import Pagination from '../../../components/common/pagination';
-import Columns from '../../../components/common/table-columns/employee';
+import Columns from '../../../components/common/table-columns/project';
 import SearchBar from '../../../components/common/search-add-header';
 import { confirmAlert } from 'react-confirm-alert';
-import { getEmployee } from '../../../actions/employee';
+import { getProject } from '../../../actions/project';
 
 
 class EmployeesList extends Component {
@@ -24,20 +24,17 @@ class EmployeesList extends Component {
     }
 
     componentDidMount() {
-        this.props.getEmployee({ pageNumber: this.state.activePage });
+        this.props.getProject({ pageNumber: this.state.activePage });
         // this.props.getCreditApplicationCustomers({ isApproved: 0 });
     }
 
     handlePageChange(activePage) {
         this.setState({ activePage }, () => {
-            this.props.getEmployee({ pageNumber: activePage });
+            this.props.getProject({ pageNumber: activePage });
         });
     }
 
     static getDerivedStateFromProps(props, state) {
-        // if (props.customer.isSearch) {
-        //   props.getCustomer(props.customer.value);
-        // }
         return state;
     }
 
@@ -85,17 +82,17 @@ class EmployeesList extends Component {
     };
 
     render() {
-        const { history, employee } = this.props;
+        const { history, project } = this.props;
 
         return (
             <div className="content">
                 <div>
-                    <h3 className="main-heading">Employees</h3>
+                    <h3 className="main-heading">Projects</h3>
 
-                    <SearchBar buttonTitle='Add Employee' redirectTo='/employees/add' history={history} />
+                    <SearchBar buttonTitle='Add Project' redirectTo='/projects/add' history={history} />
                     <div className="table-responsive customer-listing-table">
                         <GenricTable
-                            records={employee.records}
+                            records={project.records}
                             columns={Columns}
                             pageSize={10}
                             loading={false}
@@ -114,8 +111,8 @@ class EmployeesList extends Component {
                     </div>
                     <Pagination
                         activePage={this.state.activePage}
-                        ItemPerPage={employee.limit}
-                        length={employee.total}
+                        ItemPerPage={project.limit}
+                        length={project.total}
                         _handlePageChange={this.handlePageChange.bind(this)}
                     />
                 </div>
@@ -125,11 +122,11 @@ class EmployeesList extends Component {
 }
 
 const mapStateToProps = state => ({
-    employee: state.employee
+    project: state.project
 });
 
 const mapDispatchToProps = dispatch => ({
-    getEmployee: bindActionCreators(getEmployee, dispatch),
+    getProject: bindActionCreators(getProject, dispatch),
 });
 
 export default connect(

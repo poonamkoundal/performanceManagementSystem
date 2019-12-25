@@ -21,3 +21,13 @@ export const DELETE_COMPETITION = 'DELETE_COMPETITION';
 export const GET_EMPLOYEE = 'GET_EMPLOYEE';
 export const UPDATE_EMPLOYEE = 'UPDATE_EMPLOYEE';
 export const DELETE_EMPLOYEE = 'DELETE_EMPLOYEE';
+
+/*********** PROJECT ***********/
+export const GET_PROJECT = 'GET_PROJECT';
+export const UPDATE_PROJECT = 'UPDATE_PROJECT';
+export const DELETE_PROJECT = 'DELETE_PROJECT';
+
+/*********** GOAL ***********/
+export const GET_GOAL = 'GET_GOAL';
+// export const UPDATE_PROJECT = 'UPDATE_PROJECT';
+// export const DELETE_PROJECT = 'DELETE_PROJECT';

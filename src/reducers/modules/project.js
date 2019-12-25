@@ -1,6 +1,6 @@
 /*
- * @file: employee.js
- * @description: Reducers and actions for store/manipulate employee's  data
+ * @file: project.js
+ * @description: Reducers and actions for store/manipulate projects's  data
  * @date: 25/11/2019
  * @author: 
 */
@@ -17,14 +17,13 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case TYPE.GET_EMPLOYEE:
+        case TYPE.GET_PROJECT:
             return { ...state, ...action.data };
         case TYPE.LOG_OUT:
             return initialState;
-        case TYPE.DELETE_EMPLOYEE: {
+        case TYPE.DELETE_PROJECT: {
             const index = state.records.findIndex(x => x._id === action.data.userId);
             state.records.splice(index, 1);
-
             return { ...state, records: [...state.records] };
         }
         default:

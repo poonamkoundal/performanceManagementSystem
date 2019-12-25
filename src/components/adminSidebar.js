@@ -31,8 +31,8 @@ export default (history) => {
                 }}
             >
                 <SideNav.Toggle />
-                <SideNav.Nav defaultSelected="dashboard">
-                    <NavItem eventKey="dashboard">
+                <SideNav.Nav defaultSelected="home">
+                    <NavItem eventKey="home">
                         <NavIcon>
                             <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
@@ -40,30 +40,30 @@ export default (history) => {
                             Home
                             </NavText>
                     </NavItem>
-                    {/* <NavItem eventKey="employees">
+                    <NavItem eventKey="employees">
                         <NavIcon>
                             <i className="fa fa-fw fa-users" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
                         <NavText>
                             Employees
                             </NavText>
-                    </NavItem> */}
-                    {/* <NavItem eventKey="projects">
+                    </NavItem>
+                    <NavItem eventKey="projects">
                         <NavIcon>
                             <i className="fas fa-folder-open" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
                         <NavText>
                             Projects
                         </NavText>
-                    </NavItem> */}
-                    {/* <NavItem eventKey="logout">
+                    </NavItem>
+                    <NavItem eventKey="logout">
                         <NavIcon>
                             <i className="fa fa-fw fa-sign-out-alt" style={{ fontSize: '1.75em' }} />
                         </NavIcon>
                         <NavText>
                             Logout
                             </NavText>
-                    </NavItem> */}
+                    </NavItem>
                 </SideNav.Nav>
             </SideNav>
             {/* </ClickOutside> */}

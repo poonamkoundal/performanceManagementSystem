@@ -294,3 +294,11 @@ body {
 	/* font-weight: bold; */
 	color: #1c2025;
   }
+
+  .themed-container .row{
+	margin-top: 2%;
+  }
+
+  .textareagoal{
+	  width: 450px;
+  }

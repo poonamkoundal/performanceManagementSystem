@@ -3,12 +3,15 @@ import React from 'react';
 import { Switch } from "react-router-dom";
 import AppRoute from './AppRoute';
 import { Auth } from '../auth';
-import { publicLayout, privateLayout } from '../components/Layouts';
+import { publicLayout, adminLayout, privateLayout } from '../components/Layouts';
 import NotFound from '../components/NoFound';
 import Login from '../containers/login';
-import Dashboard from '../containers/dashboard';
+import Dashboard from '../containers/dashboard/layouts';
+import AdminDashboard from '../containers/dashboard/layouts/admindashboard';
 import Employees from '../containers/dashboard/employees';
 import EmployeesAdd from '../containers/dashboard/employees/add';
+import Projects from '../containers/dashboard/project';
+import ProjectAdd from '../containers/dashboard/project/add';
 // remove the below route
 import CompetitionsAdd from '../containers/competitions/add';
 
@@ -24,6 +27,16 @@ const Routers = store => {
                 store={store}
                 type="public"
             />
+            {/* layout for admin */}
+            <AppRoute
+                exact={true}
+                path="/home"
+                component={AdminDashboard}
+                requireAuth={Auth}
+                layout={adminLayout}
+                store={store}
+            />
+            {/* layout of other users */}
             <AppRoute
                 exact={true}
                 path="/dashboard"
@@ -37,15 +50,31 @@ const Routers = store => {
                 path="/employees"
                 component={Employees}
                 requireAuth={Auth}
-                layout={privateLayout}
+                layout={adminLayout}
                 store={store}
             />
-             <AppRoute
+            <AppRoute
                 exact={true}
                 path="/employees/add"
                 component={EmployeesAdd}
                 requireAuth={Auth}
-                layout={privateLayout}
+                layout={adminLayout}
+                store={store}
+            />
+            <AppRoute
+                exact={true}
+                path="/projects"
+                component={Projects}
+                requireAuth={Auth}
+                layout={adminLayout}
+                store={store}
+            />
+            <AppRoute
+                exact={true}
+                path="/projects/add"
+                component={ProjectAdd}
+                requireAuth={Auth}
+                layout={adminLayout}
                 store={store}
             />
             <AppRoute
@@ -53,7 +82,7 @@ const Routers = store => {
                 path="/competitions/add"
                 component={CompetitionsAdd}
                 requireAuth={Auth}
-                layout={privateLayout}
+                layout={adminLayout}
                 store={store}
             />
             <AppRoute

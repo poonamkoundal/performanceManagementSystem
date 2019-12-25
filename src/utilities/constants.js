@@ -21,3 +21,9 @@ export const Department = {
   BDG: 'BDG',
   MOD: 'MOD'
 };
+
+/************ Project payment mode *************/
+export const PaymentMode = {
+  FIXED: 'fixed',
+  HOURLY: 'hourly'
+};

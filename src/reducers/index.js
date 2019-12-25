@@ -10,6 +10,7 @@ import user from './modules/user';
 import competition from './modules/competition';
 import loader from './modules/loader';
 import employee from './modules/employee';
+import project from './modules/project';
 const userPersistConfig = {
   key: 'admin-app',
   storage: storage,
@@ -21,6 +22,7 @@ export default persistCombineReducers(userPersistConfig, {
   user,
   competition, //remove this at end
   employee,
+  project,
   router: connectRouter(history),
   loader
 });

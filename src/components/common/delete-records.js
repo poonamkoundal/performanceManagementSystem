@@ -5,8 +5,9 @@ import { bindActionCreators } from 'redux';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import { deleteEmployee } from '../../actions/employee';
+import { deleteProject } from '../../actions/project';
 
-const DeleteRecord = ({ title, deleteId, deleteEmployee }) => {
+const DeleteRecord = ({ title, deleteId, deleteEmployee, deleteProject }) => {
     const name = title;
     const id = deleteId;
     const confirm = () => {
@@ -40,6 +41,14 @@ const DeleteRecord = ({ title, deleteId, deleteEmployee }) => {
             };
             deleteEmployee(tmpObj);
         }
+        if (name === 'project') {
+            const tmpObj =
+            {
+                'id': id,
+                'status': 4
+            };
+            deleteProject(tmpObj);
+        }
 
 
     };
@@ -56,6 +65,7 @@ const mapStateToProps = state => ({});
 // Map state to props
 const mapDispatchToProps = dispatch => ({
     deleteEmployee: bindActionCreators(deleteEmployee, dispatch),
+    deleteProject: bindActionCreators(deleteProject, dispatch),
 });
 
 export default connect(

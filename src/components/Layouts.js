@@ -7,7 +7,8 @@
 
 import React from 'react';
 // import Footer from './Footer';
-import Sidebar from './Sidebar';
+import AdminSidebar from './adminSidebar';
+import Sidebar from './sidebar';
 // import Header from './Header';
 /*************** Front Layout ***************/
 export const publicLayout = props => {
@@ -20,6 +21,30 @@ export const publicLayout = props => {
 };
 
 /*************** Dashboard Layout ***************/
+export const adminLayout = props => {
+    window.scrollTo(0, 0);
+    return (
+        <React.Fragment>
+            {/* <Header /> */}
+            <div className="appContent">
+                <div className="main-container collapse-sidebar">
+                    <div className="container">
+                        <AdminSidebar history={props.children.props.history} location={props.children.props.location} />
+                        <div className="row">
+                            <div className="col-md-12 admin">
+                                {props.children}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <Footer /> */}
+        </React.Fragment>
+    );
+};
+
+
+/*************** Dashboard Layout ***************/
 export const privateLayout = props => {
     window.scrollTo(0, 0);
     return (
@@ -28,7 +53,7 @@ export const privateLayout = props => {
             <div className="appContent">
                 <div className="main-container collapse-sidebar">
                     <div className="container">
-                    <Sidebar history = {props.children.props.history} location = {props.children.props.location}/>
+                        <Sidebar history={props.children.props.history} location={props.children.props.location} />
                         <div className="row">
                             <div className="col-md-12 admin">
                                 {props.children}
