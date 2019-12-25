@@ -10,13 +10,16 @@ import * as TYPE from '../../actions/constants';
 /******** Reducers ********/
 
 const initialState = {
-    loggedIn: false
+    loggedIn: false,
+    assesmentUser: null
 };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case TYPE.LOGIN_SUCCESS:
             return { ...state, ...{ loggedIn: true }, ...action.data };
+        case TYPE.FEEDBACK:
+            return { ...state, ...{ assesmentUser: null } };
         case TYPE.LOG_OUT:
             return initialState;
         default:

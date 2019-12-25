@@ -33,5 +33,6 @@ export const GET_GOAL = 'GET_GOAL';
 /*********** ASSESMENT ***********/
 export const GET_ASSESMENT = 'GET_ASSESMENT';
 export const ADD_ASSESMENT = 'ADD_ASSESMENT';
+export const FEEDBACK = 'FEEDBACK';
 
 

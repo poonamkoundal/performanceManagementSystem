@@ -12,7 +12,7 @@ import { history } from '../../main/history';
 
 export const is_loading = (status) => ({ type: TYPE.IS_LOADING, status });
 export const get_assesment = (data) => ({ type: TYPE.GET_ASSESMENT, data });
-
+export const feedback = () => ({ type: TYPE.FEEDBACK });
 // Thunk Action Creators For Api
 /****** action creator for add competition ********/
 export const addAssesment = (params) => {
@@ -22,8 +22,8 @@ export const addAssesment = (params) => {
         ApiClient.post(`${apiUrl}/assesment`, params, loginToken).then(result => {
             if (result && result.statusCode === 200) {
                 toastAction(true, result.message);
-                // history.push('/dashboard');
-                dispatch(get_assesment(result.data));
+                dispatch(feedback());
+                history.push('/dashboard');
             } else {
                 toastAction(false, result.message);
             }
@@ -42,6 +42,23 @@ export const getAssesment = (params) => {
                 dispatch(get_assesment(result.data));
             } else {
                 toastAction(false, message.commonError);
+            }
+            dispatch(is_loading(false));
+        });
+    };
+};
+// Add feedback
+export const addFeedback = (params) => {
+    return (dispatch, getState) => {
+        const { user: { loginToken } } = getState();
+        dispatch(is_loading(true));
+        ApiClient.put(`${apiUrl}/assesment/feedback`, params, loginToken).then(result => {
+            if (result && result.statusCode === 200) {
+                toastAction(true, result.message);
+                dispatch(feedback());
+                history.push('/dashboard');
+            } else {
+                toastAction(false, result.message);
             }
             dispatch(is_loading(false));
         });

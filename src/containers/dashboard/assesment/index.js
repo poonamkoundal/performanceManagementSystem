@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getProject } from '../../../actions/project';
-import { addAssesment } from '../../../actions/assesment';
+import { addAssesment, addFeedback } from '../../../actions/assesment';
 import { Row, Col, Card, Badge, Button, FormGroup, Label } from 'reactstrap';
 import { LocalForm, Control, Errors } from 'react-redux-form';
 
@@ -39,7 +39,7 @@ class SelfAssesment extends Component {
     }
 
     submitFeedbackForm(data) {
-        console.log(data);
+        this.props.addFeedback(data);
     }
 
     getProjects = (project) => {
@@ -75,7 +75,7 @@ class SelfAssesment extends Component {
         return <div>
             <Row>
                 <Col sm="12" md={{ size: 12 }}>
-                    {user.assesmentUser._id === user._id && <LocalForm
+                    {user.assesmentUser && user.assesmentUser._id === user._id && <LocalForm
                         onSubmit={(values) => this.submitForm(values)}
                         model="assesment"
                     >
@@ -113,16 +113,16 @@ class SelfAssesment extends Component {
                     {/* Conditional Form */}
                     <LocalForm
                         onSubmit={(values) => this.submitFeedbackForm(values)}
-                        model="assesment"
+                        model="feedback"
                     >
 
                         <FormGroup row>
                             <Col sm={6}>
                                 <Control.text
-                                    model="._id"
+                                    model=".userId"
                                     className="form-control"
                                     type='hidden'
-                                    defaultValue={user._id}
+                                    defaultValue={user.assesmentUser && user.assesmentUser._id}
                                 />
                             </Col>
                         </FormGroup>
@@ -168,6 +168,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     getProject: bindActionCreators(getProject, dispatch),
     addAssesment: bindActionCreators(addAssesment, dispatch),
+    addFeedback: bindActionCreators(addFeedback, dispatch),
 });
 
 export default connect(
