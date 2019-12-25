@@ -6,7 +6,7 @@
 */
 
 import React from 'react';
-import Sidebar from './sidebar';
+import Sidebar from './Sidebar';
 /*************** Front Layout ***************/
 export const publicLayout = props => {
     window.scrollTo(0, 0);
